@@ -1,1 +1,65 @@
-<h2>Card component</h2>
+<div class="card">
+  <h2>{{ title }}</h2>
+  <strong>Number: {{ number }}</strong><br>
+  
+  <em>Array: {{ array }}</em><br>
+  
+  <pre>{{ object | json }}</pre><br>
+  
+  <p>{{ func() }}</p><br>
+  <!-- peremennaja v {{ }} -->
+  <img class="image" src="{{ imgUrl }}" alt=""><br>
+  
+  <!-- src v [ ] Angular ponimaet cto imgUrl etp JS  -->
+  <img class="image" [src]="imgUrl" alt=""><br>
+  
+  <!-- BTN imejet porametr disabled kotorij priravnivaetsja k peremennoj true/false -->
+  <button [disabled]="disabledBtn">Disabled at 3 sek</button><br>
+  
+  <button (click)="funcBtn()">Change Img</button><br>
+
+  <button (click)="changeTitle()">Change title</button><br>
+
+  <button (click)="title = 'Change to original Title '">Change title</button><br>
+  
+  <div class="inputStyle">
+    <p>Sposob 1  $event</p>
+    <input type="text" [value]="title" (input)="inputValue($event)"><br>
+        
+    <p>Sposob 2  #myInput</p>
+    <input type="text" [value]="title" #myInput (input)="inputValue2(myInput.value)"><br>
+    
+    <div>
+      <p>Sposob 3  ngModel</p>
+      <input type="text" [(ngModel)]="title">
+    </div>
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, fugiat?</p>
+</div>
