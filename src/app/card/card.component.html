@@ -1,12 +1,25 @@
 <div class="card">
-  <h2>{{ title }}</h2>
+  <h2>{{ title }}</h2><br> 
+  
+  <div>
+    <p>ngModelChange</p>
+    <input type="text"[(ngModel)]="inputText" (ngModelChange)="funcModelChange()">
+  </div>
+
+  <p [ngStyle]="{
+    color: inputText.length > 8 ? 'green':'blue',
+    fontSize: inputText.length <= 8 ? '16px':'50px'
+  }"
+
+  >{{inputText}}</p>
+
   <strong>Number: {{ number }}</strong><br>
   
   <em>Array: {{ array }}</em><br>
   
   <pre>{{ object | json }}</pre><br>
   
-  <p>{{ func() }}</p><br>
+  <p>{{ func() }}</p>
   <!-- peremennaja v {{ }} -->
   <img class="image" src="{{ imgUrl }}" alt=""><br>
   
@@ -33,6 +46,9 @@
       <p>Sposob 3  ngModel</p>
       <input type="text" [(ngModel)]="title">
     </div>
+
+
+    
   
   </div>
 

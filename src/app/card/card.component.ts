@@ -37,6 +37,13 @@ export class CardComponent implements OnInit {
   }
 
 
+  inputText = ""
+
+  funcModelChange(){
+    console.log(this.inputText);
+    
+  }
+  
   inputValue(event:any) {
     const value = event.target.value
     this.title = value

@@ -1,1 +1,45 @@
-<p>form works!</p>
+<section class="card">
+  <h1 class="card__h1">Service</h1>
+  <div class="cards " (click)="clickEvent(webDevelopment)" (click)="clickEv1()" [ngClass]="{'green' : st1}">
+    <h3>
+      Web Development
+    </h3>
+    <h3>
+      ${{webDevelopment | number:'1.2-2'}}
+    </h3>
+  </div>
+  <div class="cards" (click)="clickEvent(design)" (click)="clickEv2()" [ngClass]="{'green' : st2}">
+    <h3>
+      Design
+    </h3>
+    <h3>
+      ${{design | number:'1.2-2'}}
+    </h3>
+  </div>
+  <div class="cards" (click)="clickEvent(Integration)" (click)="clickEv3()" [ngClass]="{'green' : st3}">
+    <h3>
+      Integration
+    </h3>
+    <h3>
+      ${{Integration | number:'1.2-2'}}
+    </h3>
+  </div>
+  <div class="cards" (click)="clickEvent(training)" (click)="clickEv4()" [ngClass]="{'green' : st4}">
+    <h3>
+      Training
+    </h3>
+    <h3>
+      ${{training | number:'1.2-2'}}
+    </h3>
+  </div>
+  <div class="line"></div>
+  <div class="cards total">
+    <h3>
+      Total
+    </h3>
+    <h3>
+      ${{result | number:'1.2-2'}}
+    </h3>
+  </div>
+
+</section>
