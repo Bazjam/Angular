@@ -1,49 +1,38 @@
 import { Component } from '@angular/core';
 
+interface Service {
+  name: string;
+  price: number;
+  checked: boolean;
+}
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
+
 export class FormComponent {
-  webDevelopment = 300;
-  design = 400;
-  Integration = 250;
-  training = 220;
-  result = 0;
+  services: Service[] = [
+    { name: 'Web Development', price: 300, checked: false },
+    { name: 'Design', price: 400, checked: false },
+    { name: 'Integration', price: 250, checked: false },
+    { name: 'Training', price: 220, checked: false },
+  ];
+  total: number = 0;
 
-
-  classGreen = 'green';
-  classNone = '';
-
-  status: boolean = false;
-
-  clickEvent(price:number) {
-    this.result += this.status ? -price : price;
-    
-    // this.status = !this.status;
-    // this.result = this.webDevelopment;
+  updateAll() {
+    this.total = this.services.filter(service => service.checked)
+    .reduce((sum, service) => sum + service.price, 0)
+    // this.total = this.services.reduce((sum, service) => {
+    //   if (service.checked) {
+    //     sum + service.price;
+    //   }
+    //   return sum;
+    // }, 0);
   }
-
-  st1: boolean = false;
-  st2: boolean = false;
-  st3: boolean = false;
-  st4: boolean = false;
-  clickEv1() {
-    this.st1 = !this.st1;
+  onServiceClick(service:Service){
+    service.checked = !service.checked;
+    this.updateAll();
   }
-  clickEv2() {
-    this.st2 = !this.st2;
-  }
-  clickEv3() {
-    this.st3 = !this.st3;
-  }
-  clickEv4() {
-    this.st4 = !this.st4;
-  }
-
-
-  // toggleCards(num:number) {
-  //   this.result -=num
-  // }
 }
